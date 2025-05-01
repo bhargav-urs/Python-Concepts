@@ -1,25 +1,26 @@
-class Bird:
-    def intro(self):
-        print("There are many types of birds.")
-    
-    def flight(self):
-        print("Most of the birds can fly but some cannot.")
+class Animal:
+    # Simulated method overloading using default arguments
+    def speak(self, sound=None):
+        if sound:
+            print(f"The animal says: {sound}")
+        else:
+            print("The animal makes a sound")
 
-class Sparrow(Bird):
-    def flight(self):
-        print("Sparrows can fly.")
+class Dog(Animal):
+    # Method overriding: changing how 'speak' works
+    def speak(self, sound=None):
+        print("The dog barks")
 
-class Ostrich(Bird):
-    def flight(self):
-        print("Ostriches cannot fly.")
+# Create objects
+a = Animal()
+d = Dog()
 
-# Demonstrating polymorphism
-def bird_flight(bird):
-    bird.intro()
-    bird.flight()
+# Method Overloading (simulated) because Python does not support method overloading
+print("Animal class:")
+a.speak()            # Output: The animal makes a sound
+a.speak("Roar")      # Output: The animal says: Roar
 
-bird1 = Sparrow()
-bird2 = Ostrich()
-
-bird_flight(bird1)
-bird_flight(bird2)
+# Method Overriding
+print("\nDog class:")
+d.speak()            # Output: The dog barks
+d.speak("Woof")      # Output: The dog barks (overridden behavior)
